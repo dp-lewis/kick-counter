@@ -76,7 +76,7 @@
     x.start();
     state.running = true;
     ui.reset.innerHTML = 'Stop';
-    ui.root.classList.remove('is-first-time');
+    ui.root.classList.remove('is-reset');
     ui.root.classList.remove('is-stopped');
     ui.root.classList.add('is-running');
   }
@@ -95,6 +95,9 @@
     stop();
     x.reset();
     counter = [];
+    ui.root.classList.add('is-reset');
+    ui.root.classList.remove('is-stopped');
+    ui.root.classList.remove('is-running');
     update();
   }
 

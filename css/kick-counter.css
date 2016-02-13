@@ -37,7 +37,7 @@ body {
 	opacity: 0.66;
 }
 
-.kick-counter.is-first-time .kick-counter__controls {
+.kick-counter.is-reset .kick-counter__controls {
 	opacity: 0;
 }
 
@@ -61,13 +61,15 @@ body {
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
+
+	opacity: 1;
+	-webkit-transition: opacity .4s ease-out;
+	transition: opacity .4s ease-out;
 }
 
 .kick-counter__timer,
 .kick-counter__controls {
 	height: 15vh;
-	-webkit-transition: opacity .3s ease-out;
-	transition: opacity .3s ease-out;
 }
 
 .kick-counter__counter {
