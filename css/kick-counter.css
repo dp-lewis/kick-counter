@@ -19,7 +19,7 @@ body {
 }
 
 .kick-counter {
-	color: #ddd;
+	color: #fff;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -85,7 +85,7 @@ body {
 .btn {
 	border: none;
 	background: none;
-	color: #ddd;
+	color: #fff;
 	display: inline-block;
 	font-family: Oswald, sans-serif;
 	margin: 0;
