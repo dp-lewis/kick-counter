@@ -44,6 +44,7 @@
   ui.start = document.getElementById('start');
   ui.reset = document.getElementById('reset');
   ui.counter = document.getElementById('counter');
+  ui.root = document.getElementById('kick-counter');
 
   function pad(num, size) {
     var s = "0000" + num;
@@ -75,6 +76,8 @@
     x.start();
     state.running = true;
     ui.reset.innerHTML = 'Stop';
+    ui.root.classList.remove('is-stopped');
+    ui.root.classList.add('is-running');
   }
 
   function stop() {
@@ -82,6 +85,9 @@
     clearInterval(clocktimer);
     state.running = false;
     ui.reset.innerHTML = 'Reset';
+
+    ui.root.classList.add('is-stopped');
+    ui.root.classList.remove('is-running');
   }
 
   function reset() {
@@ -91,23 +97,24 @@
     update();
   }
 
-  ui.reset.onclick = function () {
+  ui.reset.addEventListener('click', function (e) {
+    e.preventDefault();
     if (state.running) {
       stop();
     } else {
       reset();      
     }
+  }, false);
 
-  };
-
-  ui.counter.onclick = function () {
+  ui.counter.addEventListener('click', function (e) {
+    e.preventDefault();
     if (state.running) {
       counter.push(1);      
     } else {
       counter.push(1);      
       start();
     }
-  }
+  }, false);
 
 }());
 
