@@ -37,6 +37,7 @@ body {
 	opacity: 0.66;
 }
 
+.kick-counter.is-reset .kick-counter__timer,
 .kick-counter.is-reset .kick-counter__controls {
 	opacity: 0;
 }
@@ -63,8 +64,8 @@ body {
 	        justify-content: center;
 
 	opacity: 1;
-	-webkit-transition: opacity .4s ease-out;
-	transition: opacity .4s ease-out;
+	-webkit-transition: opacity .6s ease-out;
+	transition: opacity .6s ease-out;
 }
 
 .kick-counter__timer,
