@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:700,300,400);
+
+html, body {
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+  background: #3c8465;
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  text-align: center;
+  padding: 1em;
+  margin: 0;
+}
+
+.kick-counter {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.kick-counter__timer {
+	flex: 1;
+}
+
+.kick-counter__counter {
+	flex: 3;
+}
+
+.kick-counter__buttons {
+	flex: 1;
+	align-self: flex-end;
+}
+
+.counter,
+.btn {
+	border: none;
+	background: none;
+	color: #fff;
+	display: inline-block;
+	font-family: Oswald, sans-serif;
+	font-size: 50vh;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	outline: none;
+
+}
+
+.timer {
+	font-size: 10vh;
+}
+
+.btn {
+	font-size: 10vh;
+}
