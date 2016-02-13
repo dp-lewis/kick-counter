@@ -19,8 +19,15 @@ body {
 
 .kick-counter {
 	color: #ddd;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	height: 100%;
 
 }
@@ -37,20 +44,37 @@ body {
 .kick-counter__timer,
 .kick-counter__controls,
 .kick-counter__counter {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 .kick-counter__timer,
 .kick-counter__controls {
 	height: 15vh;
+	-webkit-transition: opacity .3s ease-out;
 	transition: opacity .3s ease-out;
 }
 
 .kick-counter__counter {
-	flex: auto;
+	-webkit-box-flex: 1;
+	-webkit-flex: auto;
+	    -ms-flex: auto;
+	        flex: auto;
 }
 
 .counter,
