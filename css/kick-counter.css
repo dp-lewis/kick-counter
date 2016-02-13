@@ -60,18 +60,18 @@ body {
 	color: #ddd;
 	display: inline-block;
 	font-family: Oswald, sans-serif;
-	font-size: 50vh;
-	line-height: 1;
 	margin: 0;
 	padding: 0;
 	outline: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.timer {
-	font-size: 9vh;
+.counter {
+	font-size: 45vh;
+	line-height: 1;
 }
 
-.btn {
+.btn,
+.timer {
 	font-size: 9vh;
 }
