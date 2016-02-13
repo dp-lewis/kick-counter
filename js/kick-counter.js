@@ -1,3 +1,5 @@
+// script borrows heavily from https://gist.github.com/electricg/4372563
+
 (function () {
 
   var timer = function() {
