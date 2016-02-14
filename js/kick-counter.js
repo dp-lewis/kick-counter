@@ -120,6 +120,12 @@
       counter.push(1);      
       start();
     }
+
+    if(counter.length === 10) {
+      ui.root.classList.add('is-ten');
+    } else {
+      ui.root.classList.remove('is-ten');      
+    }
   }
 
   ui.reset.addEventListener('touchstart', resetFromUI, false);

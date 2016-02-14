@@ -104,3 +104,45 @@ body {
 .timer {
 	font-size: 9vh;
 }
+
+
+.is-ten .counter {
+    -webkit-animation-name: spin;
+            animation-name: spin;
+    -webkit-animation-duration: .7s;
+            animation-duration: .7s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin { 
+    0% { 
+        -webkit-transform: rotate(0deg) scale(1); 
+                transform: rotate(0deg) scale(1); 
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(2);
+                transform: rotate(180deg) scale(2);     	
+    }
+    100% { 
+        -webkit-transform: rotate(360deg) scale(1); 
+                transform: rotate(360deg) scale(1); 
+    }
+}
+
+@keyframes spin { 
+    0% { 
+        -webkit-transform: rotate(0deg) scale(1); 
+                transform: rotate(0deg) scale(1); 
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(2);
+                transform: rotate(180deg) scale(2);     	
+    }
+    100% { 
+        -webkit-transform: rotate(360deg) scale(1); 
+                transform: rotate(360deg) scale(1); 
+    }
+}
