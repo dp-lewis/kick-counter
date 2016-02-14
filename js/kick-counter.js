@@ -103,16 +103,16 @@
     update();
   }
 
-  ui.reset.addEventListener('click', function (e) {
+  function resetFromUI(e) {
     e.preventDefault();
     if (state.running) {
       stop();
     } else {
       reset();      
     }
-  }, false);
+  }
 
-  ui.counter.addEventListener('click', function (e) {
+  function startFromUI(e) {
     e.preventDefault();
     if (state.running) {
       counter.push(1);      
@@ -120,7 +120,12 @@
       counter.push(1);      
       start();
     }
-  }, false);
+  }
+
+  ui.reset.addEventListener('touchstart', resetFromUI, false);
+  ui.reset.addEventListener('click', resetFromUI, false);
+  ui.counter.addEventListener('touchstart', startFromUI, false);
+  ui.counter.addEventListener('click', startFromUI, false);
 
   document.body.addEventListener('touchmove', function (e) { 
     e.preventDefault(); 
