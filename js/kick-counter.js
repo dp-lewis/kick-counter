@@ -2,10 +2,11 @@
 
 (function () {
 
-  var timer = function() {
+  var timer = function(elapsedTime) {
     // Private vars
+
     var startAt = 0;  // Time of last start / resume. (0 if not running)
-    var lapTime = 0;  // Time on the clock when last stopped in milliseconds
+    var lapTime = elapsedTime || 0;  // Time on the clock when last stopped in milliseconds
 
     var now = function() {
         return (new Date()).getTime(); 
@@ -35,18 +36,18 @@
       };
   };
 
-  var x = new timer();
+
   var ui = {};
   var clocktimer;
-  var state = {};
-  var counter = [];
-
+  var state = (localStorage.getItem('kick-counter')) ? JSON.parse(localStorage.getItem('kick-counter')) : { counter: [], time: 0, timestamp: Math.floor(Date.now()) };
 
   ui.time = document.getElementById('timer');
   ui.start = document.getElementById('start');
   ui.reset = document.getElementById('reset');
   ui.counter = document.getElementById('counter');
   ui.root = document.getElementById('kick-counter');
+
+  var x = new timer(state.time + (Math.floor(Date.now()) - state.timestamp));
 
   function pad(num, size) {
     var s = "0000" + num;
@@ -69,8 +70,11 @@
   }
 
   function update() {
+    state.timestamp = Math.floor(Date.now());
+    state.time = x.time();
     ui.time.innerHTML = formatTime(x.time());
-    ui.counter.innerHTML = counter.length;
+    ui.counter.innerHTML = state.counter.length;
+    localStorage.setItem('kick-counter', JSON.stringify(state));
   }
 
   function start() {
@@ -88,7 +92,6 @@
     clearInterval(clocktimer);
     state.running = false;
     ui.reset.innerHTML = 'Reset';
-
     ui.root.classList.add('is-stopped');
     ui.root.classList.remove('is-running');
   }
@@ -96,7 +99,7 @@
   function reset() {
     stop();
     x.reset();
-    counter = [];
+    state.counter = [];
     ui.root.classList.add('is-reset');
     ui.root.classList.remove('is-stopped');
     ui.root.classList.remove('is-running');
@@ -114,14 +117,15 @@
 
   function startFromUI(e) {
     e.preventDefault();
+    state.counter = state.counter || [];
     if (state.running) {
-      counter.push(1);      
+      state.counter.push(1);      
     } else {
-      counter.push(1);      
+      state.counter.push(1);      
       start();
     }
 
-    if(counter.length === 10) {
+    if(state.counter.length === 10) {
       ui.root.classList.add('is-ten');
     } else {
       ui.root.classList.remove('is-ten');      
@@ -136,6 +140,10 @@
   document.body.addEventListener('touchmove', function (e) { 
     e.preventDefault(); 
   });
+
+  if (state.running === true) {
+    start();
+  }
 
 }());
 
