@@ -47,7 +47,15 @@
   ui.counter = document.getElementById('counter');
   ui.root = document.getElementById('kick-counter');
 
-  var x = new timer(state.time + (Math.floor(Date.now()) - state.timestamp));
+  var elapsedTime = 0;
+
+  if (state.running === true) {
+    elapsedTime = state.time + (Math.floor(Date.now()) - state.timestamp);
+  } else if (state.counter.length > 0) {
+    elapsedTime = state.time;
+  }
+
+  var x = new timer(elapsedTime);
 
   function pad(num, size) {
     var s = "0000" + num;
@@ -90,10 +98,13 @@
   function stop() {
     x.stop();
     clearInterval(clocktimer);
+    update();
     state.running = false;
     ui.reset.innerHTML = 'Reset';
+    ui.root.classList.remove('is-reset');
     ui.root.classList.add('is-stopped');
     ui.root.classList.remove('is-running');
+    localStorage.setItem('kick-counter', JSON.stringify(state));
   }
 
   function reset() {
@@ -143,6 +154,9 @@
 
   if (state.running === true) {
     start();
+  } else if (state.counter.length > 0) {
+    stop();
+    console.log('was stopped');
   }
 
 }());
